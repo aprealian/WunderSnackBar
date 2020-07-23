@@ -1,0 +1,3 @@
+rootProject.name='Wunder Snack Bar'
+include ':app'
+include ':wundersnackbar'
