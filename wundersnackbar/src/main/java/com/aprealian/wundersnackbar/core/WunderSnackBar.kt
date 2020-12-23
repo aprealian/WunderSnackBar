@@ -1,5 +1,7 @@
 package com.aprealian.wundersnackbar.core
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.app.Activity
 import android.content.Context
 import android.view.Gravity
@@ -8,14 +10,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
-import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import com.aprealian.wundersnackbar.R
 import com.aprealian.wundersnackbar.`interface`.IWunderSnackBar
 import com.aprealian.wundersnackbar.style.*
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
+
 
 class WunderSnackBar(val activity: Activity) {
 
@@ -92,6 +94,7 @@ class WunderSnackBar(val activity: Activity) {
         val textView = snackView.findViewById<View>(R.id.text) as TextView
         val textViewSecond = snackView.findViewById<View>(R.id.textSecond) as TextView
         val buttonNeutral = snackView.findViewById<View>(R.id.buttonNeutral) as TextView
+        val imageClose = snackView.findViewById<View>(R.id.imageClose) as ImageView
 
         //set text/image
         textView.text = properties.text
@@ -115,6 +118,10 @@ class WunderSnackBar(val activity: Activity) {
             }
         }
 
+        imageClose.setOnClickListener {
+            dismiss()
+        }
+
         // Add the view to the Snackbar's layout
         val snackLayout: Snackbar.SnackbarLayout = snackBar?.view as Snackbar.SnackbarLayout
         val params  = snackLayout.layoutParams as FrameLayout.LayoutParams
@@ -131,11 +138,39 @@ class WunderSnackBar(val activity: Activity) {
 
         // Add the view to the Snackbar's layout
         layout.addView(snackView, 0, params)
+
+        secondLayout()
+    }
+
+    private fun secondLayout() {
+        //val textViewSecond = snackBar.view.findViewById<View>(R.id.textSecond) as TextView
+        var isOpen: Boolean = false
+        val layout = snackBar?.view?.findViewById<View>(R.id.layout2) as RelativeLayout
+        val buttonOpen = snackBar?.view?.findViewById<View>(R.id.buttonOpen) as ImageView
+
+        buttonOpen.setOnClickListener {
+            isOpen = !isOpen
+            buttonOpen.setImageResource(if (isOpen) R.drawable.ic_arrow_up else R.drawable.ic_arrow_down)
+            //layout.visibility = if (isOpen) View.VISIBLE else View.GONE
+
+            layout.animate()
+                .translationY(if (isOpen) 0f else layout.height.toFloat())
+                .alpha(if (isOpen) 1.0f else 0.0f)
+                .setDuration(if (isOpen) 0 else 1000)
+                .setListener(object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animation: Animator) {
+                        super.onAnimationEnd(animation)
+                        //layout.visibility = View.GONE
+                        layout.visibility = if (isOpen) View.VISIBLE else View.GONE
+                    }
+                })
+        }
     }
 
     private fun setMargin(){
         properties.margin.let {
-            val cardView = snackBar?.view?.findViewById<CardView>(R.id.cardView)
+            //val cardView = snackBar?.view?.findViewById<CardView>(R.id.cardView)
+            val cardView = snackBar?.view?.findViewById<RelativeLayout>(R.id.mainLayout)
             cardView?.apply {
                 val params = layoutParams as ViewGroup.MarginLayoutParams
                 params.setMargins(pxFromDp(activity, it.left), pxFromDp(activity, it.top), pxFromDp(activity, it.right), pxFromDp(activity, it.bottom))
@@ -144,7 +179,7 @@ class WunderSnackBar(val activity: Activity) {
         }
 
         properties.padding.let {
-            val container = snackBar?.view?.findViewById<LinearLayout>(R.id.container)
+            val container = snackBar?.view?.findViewById<RelativeLayout>(R.id.container)
             container?.setPadding(pxFromDp(activity, it.left), pxFromDp(activity, it.top), pxFromDp(activity, it.right), pxFromDp(activity, it.bottom))
         }
     }

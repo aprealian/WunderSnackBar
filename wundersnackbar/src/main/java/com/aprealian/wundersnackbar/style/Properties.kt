@@ -34,7 +34,7 @@ data class Size(val width:Int? = null, val height:Int? = null)
 
 data class Margin(val bottom: Int = 10, val left: Int = 10, val right: Int = 10, val top: Int = 10)
 
-data class Padding(val bottom: Int = 16, val left: Int = 16, val right: Int = 16, val top: Int = 16)
+data class Padding(val bottom: Int = 10, val left: Int = 10, val right: Int = 10, val top: Int = 10)
 
 
 

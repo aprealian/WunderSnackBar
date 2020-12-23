@@ -3,74 +3,292 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/cardView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        card_view:cardCornerRadius="10dp"-->
+<!--        card_view:cardElevation="1dp">-->
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/container"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imageClose"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:padding="4dp"-->
+<!--                android:src="@drawable/ic_close"-->
+<!--                android:tint="@color/color_gray"-->
+<!--                android:visibility="gone"-->
+<!--                />-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:padding="16dp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/image"-->
+<!--                    android:layout_width="32dp"-->
+<!--                    android:layout_height="32dp"-->
+<!--                    android:layout_marginRight="16dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:src="@drawable/ic_status_warning"-->
+<!--                    />-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/text"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Your plant is dehydrated"-->
+<!--                        android:textColor="#000000"-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:textStyle="bold"-->
+<!--                        />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/textSecond"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Don't forget to watering the plant."-->
+<!--                        android:textColor="#474444"-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:textStyle="normal"-->
+<!--                        android:textFontWeight="300"-->
+<!--                        />-->
+
+<!--                </LinearLayout>-->
+
+
+<!--                <TextView-->
+<!--                    android:id="@+id/buttonNeutral"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_marginLeft="16dp"-->
+<!--                    android:text="OK"-->
+<!--                    android:textSize="16sp"-->
+<!--                    android:textColor="@color/design_default_color_primary"-->
+<!--                    />-->
+
+<!--            </LinearLayout>-->
+<!--            -->
+<!--        </RelativeLayout>-->
+<!--    </androidx.cardview.widget.CardView>-->
+
+
+
+    <RelativeLayout
+        android:id="@+id/mainLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        card_view:cardCornerRadius="10dp"
-        card_view:cardElevation="1dp">
-        <LinearLayout
-            android:id="@+id/container"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:orientation="horizontal">
+            card_view:cardCornerRadius="10dp"
+            card_view:cardElevation="0dp">
+            <RelativeLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/image"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginRight="16dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_status_warning"
-                />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Your plant is dehydrated"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
+                <ImageView
+                    android:id="@+id/imageClose"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_alignParentRight="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_close_new"
+                    android:tint="@color/color_gray"
+                    android:visibility="visible"
+                    tools:visibility="visible"
                     />
 
-                <TextView
-                    android:id="@+id/textSecond"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Don't forget to watering the plant."
-                    android:textColor="#474444"
-                    android:textSize="14sp"
-                    android:textStyle="normal"
-                    android:textFontWeight="300"
+
+
+                <ImageView
+                    android:id="@+id/imageMain"
+                    android:layout_below="@+id/imageClose"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_centerHorizontal="true"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_status_warning"
+                    android:visibility="visible"
+                    tools:visibility="visible"
                     />
 
-            </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/layout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:layout_below="@id/imageMain"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_status_warning"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Your plant is dehydrated"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            />
+
+                        <TextView
+                            android:id="@+id/textSecond"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Don't forget to watering the plant."
+                            android:textColor="#474444"
+                            android:textSize="14sp"
+                            android:textStyle="normal"
+                            android:textFontWeight="300"
+                            />
+
+                    </LinearLayout>
 
 
-            <TextView
-                android:id="@+id/buttonNeutral"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="16dp"
-                android:text="OK"
-                android:textSize="16sp"
-                android:textColor="@color/design_default_color_primary"
-                />
+                    <TextView
+                        android:id="@+id/buttonNeutral"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="16dp"
+                        android:text="OK"
+                        android:textSize="16sp"
+                        android:textColor="@color/design_default_color_primary"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        />
 
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout2"
+                    android:layout_below="@+id/layout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:paddingHorizontal="16dp"
+                    android:paddingBottom="16dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/textThird"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Usually, users found graphic vectors by searching several websites for a particular illustration. However, with Free Icons, we help a user discover exclusive illustrations and graphic resources carefully designed by our designers."
+                        android:textColor="#474444"
+                        android:textSize="14sp"
+                        android:textStyle="normal"
+                        android:textFontWeight="300"
+                        />
+
+
+                    <RelativeLayout
+                        android:layout_below="@+id/textThird"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp">
+                        <TextView
+                            android:id="@+id/buttonNeutral2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:paddingVertical="6dp"
+                            android:text="Learn More"
+                            android:textColor="@color/color_primary"
+                            />
+                        <TextView
+                            android:id="@+id/buttonPositive"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/snackbar_shape"
+                            android:backgroundTint="@color/color_primary"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:paddingHorizontal="20dp"
+                            android:paddingVertical="6dp"
+                            android:text="Okay"
+                            android:textColor="@color/color_white"
+                            />
+                        <TextView
+                            android:id="@+id/buttonNegative"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="16dp"
+                            android:layout_toLeftOf="@+id/buttonPositive"
+                            android:background="@drawable/button_negative"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:paddingHorizontal="20dp"
+                            android:paddingVertical="6dp"
+                            android:text="Cancel"
+                            android:textColor="@color/color_primary"
+                            />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/buttonOpen"
+            android:layout_below="@id/cardView"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/half_circle"
+            android:padding="4dp"
+            android:src="@drawable/ic_arrow_down"
+            />
+
+    </RelativeLayout>
 
 
 </LinearLayout>
